@@ -35,7 +35,6 @@ async def read_bookings(skip: int = 0, limit: int = 100, db: Session = Depends(g
     bookings = crud.get_bookings(db, skip=skip, limit=limit)
     return bookings
 
-
 # create
 @app.post("/users", response_model=schemas.User)
 async def create_users(user: schemas.UserCreate, db: Session = Depends(get_db)):
@@ -49,5 +48,4 @@ async def create_rooms(room: schemas.RoomCreate, db: Session = Depends(get_db)):
 async def create_bookings(booking: schemas.BookingCreate, db: Session = Depends(get_db)):
     return crud.create_booking(db=db, booking=booking)
 
-    
     
